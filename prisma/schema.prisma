@@ -28,7 +28,7 @@ model Booking {
   checkoutDate    DateTime
   numberOfGuests  Int
   totalPrice      Int
-  bookingStatus   String   // Gebruik een enum voor status
+  bookingStatus   String
   user            User     @relation(fields: [userId], references: [id])
   property        Property @relation(fields: [propertyId], references: [id])
 
