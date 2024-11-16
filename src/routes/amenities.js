@@ -4,7 +4,7 @@ import getAmenities from "../services/amenities/getAmenities.js";
 import getAmenityById from "../services/amenities/getAmenityByID.js";
 import deleteAmenity from "../services/amenities/deleteAmenity.js";
 import updateAmenityById from "../services/amenities/updateAmenityByID.js";
-import notFoundErrorHandler from "../errors/NotFoundError.js";
+import notFoundErrorHandler from "../middleware/notFoundErrorHandler.js";
 
 const router = express.Router();
 

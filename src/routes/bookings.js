@@ -5,7 +5,7 @@ import getBookingById from "../services/bookings/getBookingByID.js";
 import updateBookingById from "../services/bookings/updateBooking.js";
 import deleteBooking from "../services/bookings/deleteBooking.js";
 import authMiddleware from "../middleware/auth.js";
-import notFoundErrorHandler from "../middleware/notFoundErrorHandler";
+import notFoundErrorHandler from "../middleware/notFoundErrorHandler.js";
 
 const router = express.Router();
 
