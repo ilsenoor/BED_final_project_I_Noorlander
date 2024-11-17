@@ -2,7 +2,7 @@ import express from "express";
 import getHosts from "../services/hosts/getHosts.js";
 import createHost from "../services/hosts/createHost.js";
 import getHostById from "../services/hosts/getHostByID.js";
-import updateHostById from "../services/hosts/updateHost.js";
+import updateHostById from "../services/hosts/updateHostById.js";
 import deleteHost from "../services/hosts/deleteHost.js";
 import authMiddleware from "../middleware/auth.js";
 import notFoundErrorHandler from "../middleware/notFoundErrorHandler.js";

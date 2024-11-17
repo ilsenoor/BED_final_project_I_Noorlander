@@ -2,7 +2,7 @@ import express from "express";
 import getBookings from "../services/bookings/getBookings.js";
 import createBooking from "../services/bookings/createBooking.js";
 import getBookingById from "../services/bookings/getBookingByID.js";
-import updateBookingById from "../services/bookings/updateBooking.js";
+import updateBookingById from "../services/bookings/updateBookingByID.js";
 import deleteBooking from "../services/bookings/deleteBooking.js";
 import authMiddleware from "../middleware/auth.js";
 import notFoundErrorHandler from "../middleware/notFoundErrorHandler.js";
