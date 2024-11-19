@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
   res.status(200).json(hosts);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", authMiddleware, async (req, res) => {
   const {
     username,
     password,
@@ -54,6 +54,7 @@ router.get(
 
 router.put(
   "/:id",
+  authMiddleware,
   async (req, res, next) => {
     try {
       const { id } = req.params;
@@ -86,6 +87,7 @@ router.put(
 
 router.delete(
   "/:id",
+  authMiddleware,
   async (req, res, next) => {
     try {
       const { id } = req.params;

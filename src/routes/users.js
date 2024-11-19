@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
   res.status(200).json(users);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", authMiddleware, async (req, res) => {
   const { username, password, name, email, phoneNumber, profilePicture } =
     req.body;
   const newUser = await createUser(
@@ -46,6 +46,7 @@ router.get(
 
 router.put(
   "/:id",
+  authMiddleware,
   async (req, res, next) => {
     try {
       const { id } = req.params;
@@ -70,6 +71,7 @@ router.put(
 
 router.delete(
   "/:id",
+  authMiddleware,
   async (req, res, next) => {
     try {
       const { id } = req.params;

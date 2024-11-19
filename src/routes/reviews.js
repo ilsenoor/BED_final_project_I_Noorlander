@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
   res.status(200).json(reviews);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", authMiddleware, async (req, res) => {
   const { userId, propertyId, rating, comment } = req.body;
   const newReview = await createReview(userId, propertyId, rating, comment);
   res.status(201).json(newReview);
@@ -37,6 +37,7 @@ router.get(
 
 router.put(
   "/:id",
+  authMiddleware,
   async (req, res, next) => {
     try {
       const { id } = req.params;
@@ -58,6 +59,7 @@ router.put(
 
 router.delete(
   "/:id",
+  authMiddleware,
   async (req, res, next) => {
     try {
       const { id } = req.params;
