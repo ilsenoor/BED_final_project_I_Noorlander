@@ -8,12 +8,18 @@ generator client {
   provider = "prisma-client-js"
 }
 
+//datasource db {
+  //provider     = "mysql"
+  //url          = env("DATABASE_URL")
+  //relationMode = "prisma"
+//}
+
+
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
+  provider     = "sqlite"
+  url          = "file:./database.db"
   relationMode = "prisma"
 }
-
 
 model Amenity {
   id   String @id @default(uuid()) 
@@ -55,7 +61,7 @@ model Property {
   title         String
   description   String
   location      String
-  pricePerNight Decimal  
+  pricePerNight Float  
   bedroomCount  Int
   bathRoomCount Int
   maxGuestCount Int
