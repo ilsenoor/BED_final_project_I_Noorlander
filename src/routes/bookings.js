@@ -25,6 +25,11 @@ router.post("/", authMiddleware, async (req, res) => {
     totalPrice,
     bookingStatus,
   } = req.body;
+
+  if (!userId) {
+    return res.status(400).json({ error: "UserId is required." });
+  }
+
   const newBooking = await createBooking(
     userId,
     propertyId,

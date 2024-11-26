@@ -25,6 +25,11 @@ router.post("/", authMiddleware, async (req, res) => {
     profilePicture,
     aboutMe,
   } = req.body;
+
+  if (!username) {
+    return res.status(400).json({ error: "Username is required." });
+  }
+
   const newHost = await createHost(
     username,
     password,

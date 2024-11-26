@@ -16,6 +16,11 @@ router.get("/", async (req, res) => {
 
 router.post("/", authMiddleware, async (req, res) => {
   const { userId, propertyId, rating, comment } = req.body;
+
+  if (!userId) {
+    return res.status(400).json({ error: "UserId is required." });
+  }
+
   const newReview = await createReview(userId, propertyId, rating, comment);
   res.status(201).json(newReview);
 });

@@ -27,6 +27,12 @@ router.post("/", authMiddleware, async (req, res) => {
     hostId,
     rating,
   } = req.body;
+
+  if (!title) {
+    return res.status(400).json({
+      error: "Title is required.",
+    });
+  }
   const newProperty = await createProperty(
     title,
     description,

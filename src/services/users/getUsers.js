@@ -5,8 +5,8 @@ const getUsers = async (username, email) => {
 
   return prisma.user.findMany({
     where: {
-      username,
-      email,
+      ...(username && { username: { contains: username } }),
+      ...(email && { email: { contains: email } }),
     },
   });
 };

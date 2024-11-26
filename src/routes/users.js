@@ -18,6 +18,11 @@ router.get("/", async (req, res) => {
 router.post("/", authMiddleware, async (req, res) => {
   const { username, password, name, email, phoneNumber, profilePicture } =
     req.body;
+
+  if (!username) {
+    return res.status(400).json({ error: "Username is required." });
+  }
+
   const newUser = await createUser(
     username,
     password,

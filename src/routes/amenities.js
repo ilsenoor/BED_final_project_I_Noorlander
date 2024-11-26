@@ -17,6 +17,11 @@ router.get("/", async (req, res) => {
 
 router.post("/", authMiddleware, async (req, res) => {
   const { name } = req.body;
+
+  if (!name) {
+    return res.status(400).json({ error: "Name is required." });
+  }
+
   const newAmenity = await createAmenity(name);
   res.status(201).json(newAmenity);
 });
